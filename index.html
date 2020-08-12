@@ -34,12 +34,16 @@
             .domain div {
                 text-align: left;
                 padding-left: 1em;
+                border-left: 1px solid #aaa;
+            }
+            td.spacer {
+                width: 1em;
             }
             label {
                 text-align: right;
             }
             .unit {
-                    text-align: left;
+                text-align: left;
             }
             .center {
                 text-align: center;
@@ -87,8 +91,9 @@
                 border: solid 1px #aaa;
             }
             img {
-                margin-top: 1em;
-                width: 80%;
+                margin-top: 2em;
+                margin-bottom: 1em;
+                width: 85%;
             }
             td.top {
                 vertical-align: top;
@@ -101,11 +106,13 @@
                 </style>
             </head>
         <script>
-            calculate = () => {
+            calculate = (e) => {
                 var glucose = $("#glucose").val()
                 var ketones = $("#ketones").val()
                 var ratio = (glucose/(0.0555*ketones))
                 $("#drbozratio").val(ratio.toFixed(1))
+                event.preventDefault();
+                return false;
             }
         </script>
     <body>
@@ -117,10 +124,11 @@
                     <td class="frac-bar bottom">Glucose [mg/dL]<td>
                     <td rowspan="2">&nbsp;=&nbsp;</td>
                     <td class="frac-bar bottom">Glucose [mmol/L]<td>
+                    <td rowspan="2" class="spacer"></td>
                     <td rowspan="2" class="domain">
-                        <div>&lt; 80 : Perte de poids<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;autophagie possible<br><br></div>
-                        <div>&lt; 40 : Réparation de l'immunit&eacute;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grande chance d'autophagie<br><br></div>
-                        <div>&lt; 20 : Traitement du Cancer<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meilleure chance d'autophagie</div>
+                        <div>&lt; 80 : Perte de poids<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(autophagie probable)<br><br></div>
+                        <div>&lt; 40 : Réparation de l'immunit&eacute;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(grandes chance d'autophagie)<br><br></div>
+                        <div>&lt; 20 : Traitement du Cancer<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(autophagie quasi-certaine)</div>
                     </td>
                 </tr>
                 <tr>
