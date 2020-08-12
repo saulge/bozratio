@@ -38,6 +38,9 @@
             label {
                 text-align: right;
             }
+            .unit {
+                    text-align: left;
+            }
             .center {
                 text-align: center;
             }
@@ -60,11 +63,12 @@
             }
             #content {
                 margin: auto;
-                width: 1000px;
+                width: 1100px;
                 border: 1px solid #888;
                 background: #e8e8e8;
                 padding: 1em;
                 border-radius: 50px;
+                text-align: center;
             }
             h1 {
                 font-family: 'Bebas Neue', cursive;
@@ -82,6 +86,18 @@
                 border-radius: 30px;
                 border: solid 1px #aaa;
             }
+            img {
+                margin-top: 1em;
+                width: 80%;
+            }
+            td.top {
+                vertical-align: top;
+                padding-top: 0.25em;
+            }
+            td.bottom {
+                vertical-align: bottom;
+                padding-bottom: 0.25em;
+            }
                 </style>
             </head>
         <script>
@@ -98,18 +114,18 @@
             <table>
                 <tr>
                     <td rowspan="2">Dr Boz ratio =&nbsp;</td>
-                    <td class="frac-bar">Glucose [mg/dL]<td>
+                    <td class="frac-bar bottom">Glucose [mg/dL]<td>
                     <td rowspan="2">&nbsp;=&nbsp;</td>
-                    <td class="frac-bar">Glucose [mmol/L]<td>
+                    <td class="frac-bar bottom">Glucose [mmol/L]<td>
                     <td rowspan="2" class="domain">
-                        <div>&lt; 80 : Perte de poids</div>
-                        <div>&lt; 40 : Syst&egrave;me immunitaire</div>
-                        <div>&lt; 20 : Traitement du Cancer</div>
+                        <div>&lt; 80 : Perte de poids<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(autophagie possible)<br><br></div>
+                        <div>&lt; 40 : Syst&egrave;me immunitaire<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(grandes chance d'autophagie)<br><br></div>
+                        <div>&lt; 20 : Traitement du Cancer<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(meilleur chance d'autophagie)</div>
                     </td>
                 </tr>
                 <tr>
-                    <td>Cétones [mmol/L]<td>
-                    <td>0,0555 &times; Cétones [mmol/L]<td>
+                    <td class="top">Cétones [mmol/L]<td>
+                    <td class="top">0,0555 &times; Cétones [mmol/L]<td>
                 </tr>
             </table>
             <p><br></p>
@@ -119,14 +135,14 @@
                     <div class="col-sm-4">
                         <input type="text" id="glucose" class="form-control form-control-sm">
                     </div>
-                    <div class="col-sm-4 col-form-label">mmol/L</div>
+                    <div class="col-sm-4 col-form-label unit">mmol/L</div>
                 </div>
                 <div class="form-group row">
                     <label for="ketones" class="col-sm-4 col-form-label">Cétones :</label>
                     <div class="col-sm-4">
                         <input type="text" id="ketones" class="form-control form-control-sm">
                     </div>
-                    <div class="col-sm-4 col-form-label">mmol/L</div>
+                    <div class="col-sm-4 col-form-label unit">mmol/L</div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12 center">
@@ -139,7 +155,7 @@
                     </div>
                 </div>
             </form>
-            <img src="drboz.png" width="100%">
+            <img src="drboz.png">
         </div>
     </body>
 </html>
