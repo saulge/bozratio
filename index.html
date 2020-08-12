@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title>Dr Boz ratio</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+                crossorigin="anonymous"></script>
+        <style type="text/css">
+            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+            *, td, td * {
+                font-family: 'Caveat', cursive;
+                font-size: 26px;
+                line-height: 24px;
+            }
+            body {
+                margin: 1em 1em;
+                background-color: #eee;
+            }
+            table {
+                border: none;
+                margin: auto;
+            }
+            table, td {
+                border-collapse: collapse;
+                vertical-align: middle;
+                text-align: center;
+            }
+            .frac-bar {
+                border-bottom: 2px solid #666;
+            }
+            .domain div {
+                text-align: left;
+                padding-left: 1em;
+            }
+            label {
+                text-align: right;
+            }
+            .center {
+                text-align: center;
+            }
+            input[type=text] {
+                font-family: 'Oswald', sans-serif;
+                border: 1px solid #aaa;
+                height: 36px;
+                line-height: 36px;
+            }
+            
+            .col-sm-4, .col-sm-12 {
+                line-height: 10px;
+                font-size: 30px;
+            }
+            .col-sm-12 #drbozratio {
+                border: none !important;
+                font-size: 54px;
+                text-align: center;
+                height: 55px !important;
+            }
+            #content {
+                margin: auto;
+                width: 1000px;
+                border: 1px solid #888;
+                background: #e8e8e8;
+                padding: 1em;
+                border-radius: 50px;
+            }
+            h1 {
+                font-family: 'Bebas Neue', cursive;
+                font-size: 2.5em;
+                text-align: center;
+            }
+            a.btn {
+                font-family: 'Oswald', sans-serif;
+            }
+            form {
+                width: 600px;
+                background: #f8f8f8;
+                margin: auto;
+                padding-top: 1em;
+                border-radius: 30px;
+                border: solid 1px #aaa;
+            }
+                </style>
+            </head>
+        <script>
+            calculate = () => {
+                var glucose = $("#glucose").val()
+                var ketones = $("#ketones").val()
+                var ratio = (glucose/(0.0555*ketones))
+                $("#drbozratio").val(ratio.toFixed(1))
+            }
+        </script>
+    <body>
+        <div id="content">
+            <h1>Dr Boz Ratio</h1>
+            <table>
+                <tr>
+                    <td rowspan="2">Dr Boz ratio =&nbsp;</td>
+                    <td class="frac-bar">Glucose [mg/dL]<td>
+                    <td rowspan="2">&nbsp;=&nbsp;</td>
+                    <td class="frac-bar">Glucose [mmol/L]<td>
+                    <td rowspan="2" class="domain">
+                        <div>&lt; 80 : Perte de poids</div>
+                        <div>&lt; 40 : Syst&egrave;me immunitaire</div>
+                        <div>&lt; 20 : Traitement du Cancer</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cétones [mmol/L]<td>
+                    <td>0,0555 &times; Cétones [mmol/L]<td>
+                </tr>
+            </table>
+            <p><br></p>
+            <form>
+                <div class="form-group row">
+                    <label for="glucose" class="col-sm-4 col-form-label">Glucose :</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="glucose" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-sm-4 col-form-label">mmol/L</div>
+                </div>
+                <div class="form-group row">
+                    <label for="ketones" class="col-sm-4 col-form-label">Cétones :</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="ketones" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-sm-4 col-form-label">mmol/L</div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 center">
+                        <input type="text" id="drbozratio" readonly class="form-control-plaintext form-control-plaintext-sm">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 center">
+                        <a href="#" class="btn btn-primary" onclick="calculate()">Calculer</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
