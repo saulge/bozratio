@@ -107,8 +107,8 @@
             </head>
         <script>
             calculate = (e) => {
-                var glucose = $("#glucose").val()
-                var ketones = $("#ketones").val()
+                var glucose = $("#glucose").val().replace(",", ".")
+                var ketones = $("#ketones").val().replace(",", ".")
                 var ratio = glucose/ketones
                 $("#drbozratio").val(ratio.toFixed(1))
                 event.preventDefault();
