@@ -109,7 +109,7 @@
             calculate = (e) => {
                 var glucose = $("#glucose").val()
                 var ketones = $("#ketones").val()
-                var ratio = (glucose/(0.0555*ketones))
+                var ratio = glucose/ketones
                 $("#drbozratio").val(ratio.toFixed(1))
                 event.preventDefault();
                 return false;
@@ -122,8 +122,6 @@
                 <tr>
                     <td rowspan="2">Dr Boz ratio =&nbsp;</td>
                     <td class="frac-bar bottom">Glucose [mg/dL]<td>
-                    <td rowspan="2">&nbsp;=&nbsp;</td>
-                    <td class="frac-bar bottom">Glucose [mmol/L]<td>
                     <td rowspan="2" class="spacer"></td>
                     <td rowspan="2" class="domain">
                         <div>&lt; 80 : Perte de poids<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(autophagie probable)<br><br></div>
@@ -133,7 +131,6 @@
                 </tr>
                 <tr>
                     <td class="top">Cétones [mmol/L]<td>
-                    <td class="top">0,0555 &times; Cétones [mmol/L]<td>
                 </tr>
             </table>
             <p><br></p>
@@ -143,7 +140,7 @@
                     <div class="col-sm-4">
                         <input type="text" id="glucose" class="form-control form-control-sm">
                     </div>
-                    <div class="col-sm-4 col-form-label unit">mmol/L</div>
+                    <div class="col-sm-4 col-form-label unit">mg/dL</div>
                 </div>
                 <div class="form-group row">
                     <label for="ketones" class="col-sm-4 col-form-label">Cétones :</label>
